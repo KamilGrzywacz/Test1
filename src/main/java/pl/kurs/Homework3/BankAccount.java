@@ -64,11 +64,11 @@ public class BankAccount {
             System.out.println("Kwota przelewu przewyższa twój stan konta");
         }
     }
-
-    void wypiszHistorieOperacji() {
-        System.out.println(bankAccountsHistory[Integer.parseInt(name)]);
-
-    }
+//
+//    void wypiszHistorieOperacji() {
+//        System.out.println(bankAccountsHistory[Integer.parseInt(name)]);
+//
+//    }
 
 }
 

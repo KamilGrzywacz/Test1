@@ -2,7 +2,7 @@ package pl.kurs.Homework2;
 
 public class Product {
     String product;
-    int price;
+    double price;
     String category;
 
     public Product(String product, int price, String category) {
