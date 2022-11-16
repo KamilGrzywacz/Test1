@@ -17,10 +17,11 @@ public class Runner {
         productsArray[3] = product4;
         productsArray[4] = product5;
         productsArray[5] = product6;
-        product1.avaragePriceProducts(productsArray);
-        product1.theMostCheapestProduct(productsArray);
-        product1.theMostExpensiveProduct(productsArray);
         product1.averagePriceAg(productsArray);
+        product1.theMostExpensiveProduct(productsArray);
+        product1.theMostCheapestProduct(productsArray);
+        product1.avaragePriceProducts(productsArray);
+
 
     }
 
