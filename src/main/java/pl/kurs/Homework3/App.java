@@ -14,7 +14,7 @@ public class App {
         tomek.cashOut(100);
         tomek.transfer(robert, 100);
         tomek.wypiszHistorieOperacji();
-       // robert.wypiszHistorieOperacji();
+        // robert.wypiszHistorieOperacji();
 
 
     }

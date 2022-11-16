@@ -31,14 +31,11 @@ public class BankAccount {
     }
 
 
-
-
-
     void cashOut(double cash) {
         if (balance >= cash) {
             balance = balance - cash;
             System.out.println("Stan twojego konta po wypłacie to: " + balance);
-           bankAccountsHistory[1] = "Dokonano wypłaty  pieniędzy  na kwote " + cash + " o godzinie: " + t1;
+            bankAccountsHistory[1] = "Dokonano wypłaty  pieniędzy  na kwote " + cash + " o godzinie: " + t1;
         } else {
             System.out.println("Kwota wypłaty przewyższa twój stan konta");
         }
@@ -61,14 +58,14 @@ public class BankAccount {
 
     void wypiszHistorieOperacji() {
         //for(int i = 0 ; i< 100 ; i++){
-         //   if(cashOut ){
-          //      bankAccountsHistory[i] = " " +  i + ". Dnia: " + t1 + " wykonano operacje " + cashOut + " na kwote " + cash + " z konta " + name;
-         //   }
-      //  }
+        //   if(name = robert ){
+        //      bankAccountsHistory[i] = " " +  i + ". Dnia: " + t1 + " wykonano operacje " + cashOut + " na kwote " + cash + " z konta " + name;
+        //  }
+        // }
         System.out.println(Arrays.deepToString(bankAccountsHistory));
 
 
-   }
+    }
 
 }
 
