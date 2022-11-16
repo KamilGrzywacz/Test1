@@ -1,5 +1,7 @@
 package pl.kurs.Homework3;
 
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -11,9 +13,12 @@ public class BankAccount {
     private String pesel;
     private double lendingRate;
     private double balance;
+    private double cash;
+    private double moneyTransfer;
+    private double cashOut;
+    String[] bankAccountsHistory = new String[100];
 
-    BankAccount[] bankAccountsHistory = new BankAccount[100];
-
+    Timestamp t1 = Timestamp.from(Instant.now());
 
     public BankAccount(String name, String nameOfBank, long number, String pesel, double lendingRate, double balance) {
         this.name = name;
@@ -26,49 +31,44 @@ public class BankAccount {
     }
 
 
-    Scanner scanner = new Scanner(System.in);
 
 
-    void cashOut1() {
-        int money;
-        System.out.println("Podaj jaką kwotę chcesz wypłacić ");
-        money = scanner.nextInt();
-        balance = balance - money;
-        System.out.println("Twoj stan konta po wypłacie to: " + balance);
 
-
-    }
-
-    void cashOut() {
-        int money;
-        System.out.println("Podaj jaką kwotę chcesz wypłacić ");
-        money = scanner.nextInt();
-        if (balance >= money) {
-            balance = balance - money;
-            System.out.println("Twoj stan konta po wypłacie to: " + balance);
+    void cashOut(double cash) {
+        if (balance >= cash) {
+            balance = balance - cash;
+            System.out.println("Stan twojego konta po wypłacie to: " + balance);
+           bankAccountsHistory[1] = "Dokonano wypłaty  pieniędzy  na kwote " + cash + " o godzinie: " + t1;
         } else {
             System.out.println("Kwota wypłaty przewyższa twój stan konta");
         }
     }
 
-    void transfer(BankAccount name) {
-        int moneyTransfer;
-        System.out.println("Podaj kwotę przelewu: ");
-        moneyTransfer = scanner.nextInt();
+    void transfer(BankAccount name, double moneyTransfer) {
         if (balance >= moneyTransfer) {
             balance = balance - moneyTransfer;
             name.balance += moneyTransfer;
-            System.out.println("Twoj stan konta po wypłacie to: " + balance);
 
+
+            System.out.println("Twoj stan konta po wypłacie to: " + balance);
+            bankAccountsHistory[0] = "Dokonano transferu pieniędzy na konto " + name + " na kwote " + moneyTransfer + " o godzinie: " + t1;
         } else {
             System.out.println("Kwota przelewu przewyższa twój stan konta");
+
         }
+
     }
-//
-//    void wypiszHistorieOperacji() {
-//        System.out.println(bankAccountsHistory[Integer.parseInt(name)]);
-//
-//    }
+
+    void wypiszHistorieOperacji() {
+        //for(int i = 0 ; i< 100 ; i++){
+         //   if(cashOut ){
+          //      bankAccountsHistory[i] = " " +  i + ". Dnia: " + t1 + " wykonano operacje " + cashOut + " na kwote " + cash + " z konta " + name;
+         //   }
+      //  }
+        System.out.println(Arrays.deepToString(bankAccountsHistory));
+
+
+   }
 
 }
 

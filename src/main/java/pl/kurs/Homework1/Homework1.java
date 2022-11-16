@@ -1,6 +1,8 @@
 package pl.kurs.Homework1;
 
 
+import java.time.temporal.ValueRange;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Homework1 {
@@ -17,7 +19,6 @@ public class Homework1 {
             array[s++] = Integer.parseInt(string);
 
         }
-
 
         int maxValueFromArray = array[0];
         for (int i = 0; i < array.length; i++) {
@@ -36,45 +37,34 @@ public class Homework1 {
         System.out.println("Najmniejszy element talibcy to :" + minValueFromArray);
 
 
+        int[] factors = new int[array.length];
 
-
-        int[] factors = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50};
-        int factor = 1;
-        for (int i = 0; i < array.length; i++) {
-
-            if (array[i] % factor == 0 ) {
-                factor = array[i];
+        for (int i = 0; i < array.length; i++)
+            for (int j = 1; j < 100; j++) {
+                if (array[i] % j == 0) {
+                    factors[i]++;
+                }
             }
+        //  int theMostFactors = factors[0];
+        //  for(int i =0; i < factors.length ; i++) {
+        //  if (factors[i] > theMostFactors) {
+        //      theMostFactors = factors[i];
+        //  }
+        //   }
+        //    System.out.println(theMostFactors);}
+
+        System.out.println("Ilość dzielników dla podanych elementów to : " + Arrays.toString(factors));
+
+
+        int[] primeNumbers = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97};
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < primeNumbers.length; j++)
+                if (array[i] == primeNumbers[j]) {
+                    System.out.println("W podanym zbiorze liczba pierwsza to :" + array[i]);
+                } else {
+                }
         }
-        System.out.println("Liczba z największa liczbą dzielników to: " + factor);
-        //        int cnt = 0;
-//        while (cnt < 50) {
-//            for ( int i = 0; i < array.length ; i++){
-//            if(array[i] % cnt == 0){
-//                System.out.println("");
-//            }
-//
-//        } cnt++;
-//        }
-//            System.out.println("Liczba z największa liczba dzielników to");
-//        int cnt = 0;
-//            while (cnt <50 ){
-//                cnt++;
-//            } if (array[i] % cnt)
-//        }
-
-
-
-//        int[] primeNumbers = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97};
-//        int primeNumber = 1;
-//        for (int i = 0; i < array.length; i++) {
-//            if (array[i] == primeNumbers[i]){
-//                primeNumber = array[0];
-//                System.out.println("W podanym zbiorze liczba pierwsza to :"+ primeNumber);
-//            } else {
-//            }
-//            System.out.println("Liczba " + array[i] + " nie jest pierwsza");
-//        }
+        System.out.println("Brak liczb pierwszych w podanym zbiorze ");
 
     }
-    }
+}
