@@ -3,8 +3,7 @@ package pl.kurs.Homework3;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Scanner;
+
 
 public class BankAccount {
     private String name;
@@ -13,12 +12,9 @@ public class BankAccount {
     private String pesel;
     private double lendingRate;
     private double balance;
-    private double cash;
-    private double moneyTransfer;
-    private double cashOut;
     String[] bankAccountsHistory = new String[100];
 
-    Timestamp t1 = Timestamp.from(Instant.now());
+
 
     public BankAccount(String name, String nameOfBank, long number, String pesel, double lendingRate, double balance) {
         this.name = name;
@@ -30,8 +26,8 @@ public class BankAccount {
 
     }
 
-
     void cashOut(double cash) {
+        Timestamp t1 = Timestamp.from(Instant.now());
         if (balance >= cash) {
             balance = balance - cash;
             System.out.println("Stan twojego konta po wypłacie to: " + balance);
@@ -42,6 +38,7 @@ public class BankAccount {
     }
 
     void transfer(BankAccount name, double moneyTransfer) {
+        Timestamp t1 = Timestamp.from(Instant.now());
         if (balance >= moneyTransfer) {
             balance = balance - moneyTransfer;
             name.balance += moneyTransfer;
